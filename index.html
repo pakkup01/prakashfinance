@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chun Onn Woo | Personal Banking Professional</title>
+  <style>
+    :root {
+      --primary-color: #004aad;
+      --accent-color: #2ecc71;
+      --text-color: #333;
+      --bg-color: #ffffff;
+      --light-gray: #f5f7fa;
+      --transition: all 0.3s ease;
+    }
+
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-color);
+      background: var(--bg-color);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                  url('https://images.unsplash.com/photo-1556742400-b5c8a0f9e7e2?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 8rem 1rem 6rem;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0.5rem 0;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 1rem auto 0;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0.8rem 1rem;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section:nth-child(even) {
+      background: var(--light-gray);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-color);
+      margin: 0.5rem auto 0;
+    }
+
+    .content {
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.08);
+    }
+    .skill-card h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .contact a:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 6rem 1rem 5rem;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">My Story</a></li>
+      <li><a href="#skills">What I Bring</a></li>
+      <li><a href="#why-bank">Why a Top 5 Bank</a></li>
+      <li><a href="#approach">My Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Chun Onn Woo</h1>
+    <p>Financial Service Representative | Building trust through responsible, conversational banking</p>
+  </header>
+
+  <section id="about" class="fade-in">
+    <h2>My Story</h2>
+    <div class="content">
+      <p>I began my career in high-volume transactional roles, learning firsthand what customers expect at the front line of banking. Over time, I realized I thrive not just on accuracy and speed, but on conversation—discovering people's goals and finding ways to help them get there.</p>
+      <p>At <strong>NMB Bank</strong>, I led digital education initiatives that encouraged customers to adopt online banking tools. These sessions didn't just improve efficiency—they built customer confidence and trust. Now at <strong>LendDirect</strong>, I serve 50+ clients daily, balancing sales targets with a responsibility to lend wisely and ethically. Every conversation is an opportunity to make banking feel more human again.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <h2>What I Bring</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Customer Connections</h3>
+        <p>Skilled in identifying needs through conversation—turning casual chats into meaningful advisory moments that drive both satisfaction and results.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Sales with Integrity</h3>
+        <p>Consistently meet and exceed targets by focusing on fit, not pressure—aligning every product recommendation with customer capacity and goals.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Compliance &amp; Trust</h3>
+        <p>Strong understanding of banking regulations and documentation, ensuring customer and institutional protection at every step.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Digital Confidence</h3>
+        <p>Empower customers to use online services effectively—closing the gap between traditional banking and modern finance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-bank" class="fade-in">
+    <h2>Why a Top 5 Bank</h2>
+    <div class="content">
+      <p>Canada's major banks—RBC, TD, Scotiabank, BMO, and CIBC—set the gold standard in customer trust and comprehensive financial advice. They expect relationship-focused professionals who uphold compliance, deliver results, and embody their brand promise of responsible growth.</p>
+      <p>I'm drawn to this environment because it aligns with my approach: building relationships through integrity and effectiveness. I'm ready to represent one of these brands with the professionalism and empathy customers deserve.</p>
+    </div>
+  </section>
+
+  <section id="approach" class="fade-in">
+    <h2>My Approach</h2>
+    <div class="content">
+      <p>Every interaction is an opportunity—not just to close a sale, but to open a relationship. I focus on understanding customers first, matching the right products second. I view sales targets as benchmarks for quality service, not pressure points.</p>
+      <p>Whether handling a first-time borrower or a long-term client, my goal is the same: make each customer feel heard, supported, and confident in their financial decisions.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in contact">
+    <h2>Contact</h2>
+    <p>If you're looking for a trusted, customer-first banking professional who combines strong compliance knowledge with a conversational approach, let's connect.</p>
+    <a href="mailto:chunonnwoo@email.com">Email Me</a>
+  </section>
+
+  <footer>
+    © 2026 Chun Onn Woo — This site was conceptualized and built using AI tools.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
