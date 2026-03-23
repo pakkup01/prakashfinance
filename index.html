@@ -1,42 +1,1084 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Simple Professional Design</title> 
-    <style> 
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #001f3f; 
-            color: #ffffff; 
-            margin: 0; 
-            padding: 20px; 
-        } 
-        h1, h2, h3 { 
-            color: #ffffff; 
-        } 
-        a { 
-            color: #ffffff; 
-            text-decoration: none; 
-        } 
-        a:hover { 
-            text-decoration: underline; 
-        } 
-    </style> 
-</head> 
-<body> 
-    <header> 
-        <h1>Welcome to Prakash Finance</h1> 
-    </header> 
-    <main> 
-        <section> 
-            <h2>About Us</h2> 
-            <p>At Prakash Finance, we prioritize your financial well-being. Discover our range of services tailored to meet your needs.</p>
-        </section> 
-        <section> 
-            <h2>Contact Us</h2> 
-            <p>Email us at <a href="mailto:info@prakashfinance.com">info@prakashfinance.com</a></p>
-        </section> 
-    </main> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prakash Sharma Poudel – Banking &amp; Finance Professional</title>
+  <meta name="description" content="Professional portfolio of Prakash Sharma Poudel – Banking &amp; Finance specialist based in Barrie, ON, Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0a1628;
+      --navy-mid:  #112240;
+      --navy-light:#1d3461;
+      --accent:    #2563eb;
+      --accent-lt: #3b82f6;
+      --gold:      #f59e0b;
+      --white:     #ffffff;
+      --gray-100:  #f8fafc;
+      --gray-200:  #e2e8f0;
+      --gray-400:  #94a3b8;
+      --gray-600:  #475569;
+      --text:      #1e293b;
+      --radius:    0.75rem;
+      --shadow:    0 4px 24px rgba(10,22,40,.12);
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ── Utility ──────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section    { padding: 5rem 0; }
+    .section--alt { background: var(--gray-100); }
+
+    .section-label {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      max-width: 600px;
+      color: var(--gray-600);
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 48px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 1rem 0 2.5rem;
+    }
+
+    /* ── Buttons ──────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      border: 2px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,.3); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--accent-lt); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.6);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy-light);
+    }
+    .btn-outline-dark:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* ── Navbar ───────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,22,40,.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .navbar__logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .02em;
+    }
+    .navbar__logo span { color: var(--accent-lt); }
+
+    .navbar__links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .navbar__links a {
+      color: var(--gray-400);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .navbar__links a:hover { color: var(--white); }
+
+    .navbar__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .navbar__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,.2) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .hero__content { position: relative; z-index: 1; }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(37,99,235,.15);
+      border: 1px solid rgba(37,99,235,.3);
+      color: var(--accent-lt);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown .6s ease both;
+    }
+
+    .hero__name {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: .75rem;
+      animation: fadeInDown .6s .1s ease both;
+    }
+    .hero__name .accent { color: var(--accent-lt); }
+
+    .hero__role {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--gray-400);
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      animation: fadeInDown .6s .2s ease both;
+    }
+
+    .hero__location {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--gray-400);
+      font-size: .95rem;
+      margin-bottom: 2rem;
+      animation: fadeInDown .6s .3s ease both;
+    }
+
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeInDown .6s .4s ease both;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: var(--gray-400);
+      font-size: .75rem;
+      animation: bounce 2s infinite;
+    }
+    .hero__scroll svg { width: 20px; height: 20px; }
+
+    /* ── About ────────────────────────────────────────── */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform var(--transition);
+    }
+    .stat-card:hover { transform: translateY(-4px); }
+    .stat-card__num  { font-size: 2rem; font-weight: 700; color: var(--accent-lt); }
+    .stat-card__label{ font-size: .8rem; color: var(--gray-400); margin-top: .25rem; }
+
+    .about__visual {
+      position: relative;
+    }
+    .about__card {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      color: var(--white);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .about__card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+    }
+    .about__avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .about__card-name { font-size: 1.2rem; font-weight: 700; margin-bottom: .25rem; }
+    .about__card-role { font-size: .85rem; color: var(--accent-lt); margin-bottom: 1.25rem; }
+    .about__card-info { display: flex; flex-direction: column; gap: .6rem; }
+    .about__card-info li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .85rem;
+      color: var(--gray-400);
+      list-style: none;
+    }
+    .about__card-info li svg { flex-shrink: 0; color: var(--accent-lt); }
+
+    /* ── Experience ───────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: .5rem;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline__item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp .5s ease both;
+    }
+    .timeline__item::before {
+      content: '';
+      position: absolute;
+      left: -1.625rem;
+      top: .3rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.2);
+    }
+
+    .timeline__card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .timeline__card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(10,22,40,.15);
+    }
+
+    .timeline__header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+    .timeline__role   { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .timeline__date   { font-size: .8rem; color: var(--accent); font-weight: 600; background: rgba(37,99,235,.08); padding: .25rem .75rem; border-radius: 100px; }
+    .timeline__company{ font-size: .9rem; color: var(--gray-600); margin-bottom: 1rem; }
+    .timeline__bullets { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .timeline__bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .9rem;
+      color: var(--gray-600);
+    }
+    .timeline__bullets li::before {
+      content: '›';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    /* ── Education ────────────────────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-lt));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .edu-card:hover { transform: translateY(-4px); }
+    .edu-card:hover::after { transform: scaleX(1); }
+
+    .edu-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .edu-card__school { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .edu-card__degree { font-size: .9rem; color: var(--gray-600); margin-bottom: .75rem; }
+    .edu-card__date   { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; color: var(--accent); font-weight: 600; }
+
+    /* ── Skills ───────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .skill-group__title {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .skill-group__title svg { color: var(--accent); }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .skill-tag {
+      background: rgba(37,99,235,.08);
+      color: var(--navy-light);
+      border: 1px solid rgba(37,99,235,.15);
+      padding: .35rem .8rem;
+      border-radius: 100px;
+      font-size: .82rem;
+      font-weight: 500;
+      transition: background var(--transition), color var(--transition);
+    }
+    .skill-tag:hover { background: var(--accent); color: var(--white); }
+
+    /* ── Certifications ───────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,22,40,.15); }
+
+    .cert-card__icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold) 0%, #d97706 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cert-card__title  { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .cert-card__issuer { font-size: .85rem; color: var(--gray-600); }
+    .cert-card__badge  {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      margin-top: .6rem;
+      background: rgba(245,158,11,.1);
+      color: #d97706;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .25rem .6rem;
+      border-radius: 100px;
+    }
+
+    /* ── Contact ──────────────────────────────────────── */
+    .contact {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+    }
+    .contact .section-title { color: var(--white); }
+    .contact .section-subtitle { color: var(--gray-400); }
+    .contact .divider { background: var(--accent-lt); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      color: var(--white);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .contact-link:hover { background: rgba(255,255,255,.1); transform: translateX(4px); }
+
+    .contact-link__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-link__label { font-size: .75rem; color: var(--gray-400); margin-bottom: .15rem; }
+    .contact-link__value { font-size: .9rem; font-weight: 500; }
+
+    .contact-cta {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .contact-cta__title { font-size: 1.3rem; font-weight: 700; margin-bottom: .75rem; }
+    .contact-cta__text  { color: var(--gray-400); font-size: .9rem; margin-bottom: 2rem; }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .footer {
+      background: var(--navy);
+      color: var(--gray-400);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .85rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer a { color: var(--accent-lt); }
+    .footer a:hover { color: var(--white); }
+
+    /* ── Animations ───────────────────────────────────── */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .section { padding: 3.5rem 0; }
+
+      .navbar__links { display: none; }
+      .navbar__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--navy);
+        padding: 1rem 1.5rem 1.5rem;
+        gap: 1rem;
+        border-top: 1px solid rgba(255,255,255,.06);
+      }
+      .navbar__toggle { display: flex; }
+
+      .about__grid     { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid    { grid-template-columns: 1fr; }
+      .hero__ctas      { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .about__stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__logo">Prakash<span>.</span></a>
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ══════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Introduction">
+    <div class="container hero__content">
+      <div class="hero__eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Available for new opportunities
+      </div>
+
+      <h1 class="hero__name">
+        Prakash Sharma<br /><span class="accent">Poudel</span>
+      </h1>
+      <p class="hero__role">Financial Service Representative&nbsp;·&nbsp;Banking &amp; Finance Professional</p>
+      <p class="hero__location">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Barrie, ON, Canada
+      </p>
+
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get In Touch
+        </a>
+        <a href="https://www.linkedin.com/in/prakashsharmapdl" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/pakkup01" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ══════════════════════════════════════════ -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about__grid">
+        <div class="reveal">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title" id="about-title">Banking Professional with a Passion for Finance</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p style="color:var(--gray-600);margin-bottom:1rem;">
+            Results-driven finance professional with hands-on experience in banking operations, customer relationship management, and financial services. Currently working as a Financial Service Representative at Lindirect in Barrie, ON, I bring a blend of academic excellence and real-world expertise in investment funds and client advisory.
+          </p>
+          <p style="color:var(--gray-600);margin-bottom:2rem;">
+            Holding an IFIC certification and a Financial Planning &amp; Business Analytics diploma from Seneca College, I am committed to delivering value-driven solutions that help clients achieve their financial goals.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:.75rem;">
+            <a href="mailto:pe645866@gmail.com" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/prakashsharmapdl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">View LinkedIn</a>
+          </div>
+
+          <div class="about__stats">
+            <div class="stat-card reveal">
+              <div class="stat-card__num">2+</div>
+              <div class="stat-card__label">Years Banking Experience</div>
+            </div>
+            <div class="stat-card reveal">
+              <div class="stat-card__num">IFIC</div>
+              <div class="stat-card__label">Certified Professional</div>
+            </div>
+            <div class="stat-card reveal">
+              <div class="stat-card__num">3</div>
+              <div class="stat-card__label">Finance Roles Held</div>
+            </div>
+            <div class="stat-card reveal">
+              <div class="stat-card__num">2</div>
+              <div class="stat-card__label">Academic Degrees</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__visual reveal">
+          <div class="about__card">
+            <div class="about__avatar" aria-hidden="true">PS</div>
+            <div class="about__card-name">Prakash Sharma Poudel</div>
+            <div class="about__card-role">Financial Service Representative</div>
+            <ul class="about__card-info">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Barrie, ON, Canada
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                pe645866@gmail.com
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                linkedin.com/in/prakashsharmapdl
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                github.com/pakkup01
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ════════════════════════════════════ -->
+  <section class="section section--alt" id="experience" aria-labelledby="exp-title">
+    <div class="container">
+      <span class="section-label">Career History</span>
+      <h2 class="section-title" id="exp-title">Professional Experience</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-subtitle">A track record of delivering results in banking operations, client advisory, and customer service.</p>
+
+      <div class="timeline">
+
+        <article class="timeline__item reveal">
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <div class="timeline__role">Financial Service Representative</div>
+                <div class="timeline__company">Lindirect — Barrie, ON, Canada</div>
+              </div>
+              <span class="timeline__date">Current</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Advise clients on investment fund options, aligning recommendations with their financial goals and risk tolerance.</li>
+              <li>Process client transactions and account maintenance requests accurately and efficiently.</li>
+              <li>Maintain compliance with regulatory guidelines including IFIC standards and internal policies.</li>
+              <li>Build and sustain strong client relationships, resulting in improved client retention and satisfaction.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal">
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <div class="timeline__role">Customer Service Representative</div>
+                <div class="timeline__company">Petro-Canada — Canada</div>
+              </div>
+              <span class="timeline__date">Previous</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Delivered exceptional customer service in a fast-paced retail environment.</li>
+              <li>Handled cash transactions, point-of-sale systems, and daily reconciliation tasks.</li>
+              <li>Resolved customer concerns and inquiries efficiently, maintaining high satisfaction levels.</li>
+              <li>Collaborated with team members to achieve operational targets and sales goals.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline__item reveal">
+          <div class="timeline__card">
+            <div class="timeline__header">
+              <div>
+                <div class="timeline__role">Banking Operations Specialist</div>
+                <div class="timeline__company">NMB Bank — Nepal</div>
+              </div>
+              <span class="timeline__date">Prior</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Managed day-to-day banking operations including deposits, withdrawals, and account servicing.</li>
+              <li>Processed loan documentation and supported credit analysis workflows.</li>
+              <li>Coordinated with compliance teams to ensure adherence to regulatory requirements.</li>
+              <li>Leveraged core banking software and CRM tools to maintain accurate client records.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═════════════════════════════════════ -->
+  <section class="section" id="education" aria-labelledby="edu-title">
+    <div class="container">
+      <span class="section-label">Academic Background</span>
+      <h2 class="section-title" id="edu-title">Education</h2>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="edu-grid">
+
+        <article class="edu-card reveal">
+          <div class="edu-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="edu-card__school">Seneca College</div>
+          <div class="edu-card__degree">Diploma — Financial Planning and Business Analytics</div>
+          <div class="edu-card__date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Sept 2023 – Apr 2025
+          </div>
+        </article>
+
+        <article class="edu-card reveal">
+          <div class="edu-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="edu-card__school">Tribhuvan University</div>
+          <div class="edu-card__degree">Bachelor of Business Administration — Finance</div>
+          <div class="edu-card__date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Dec 2015 – Mar 2019
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ════════════════════════════════════════ -->
+  <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+    <div class="container">
+      <span class="section-label">Core Competencies</span>
+      <h2 class="section-title" id="skills-title">Skills &amp; Expertise</h2>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <div class="skill-group__title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Finance &amp; Banking
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Financial Analysis</span>
+            <span class="skill-tag">Investment Funds</span>
+            <span class="skill-tag">Banking Operations</span>
+            <span class="skill-tag">Risk Assessment</span>
+            <span class="skill-tag">Loan Processing</span>
+            <span class="skill-tag">Compliance</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group__title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Client Services
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Client Advisory</span>
+            <span class="skill-tag">Relationship Management</span>
+            <span class="skill-tag">Customer Service</span>
+            <span class="skill-tag">Needs Assessment</span>
+            <span class="skill-tag">Conflict Resolution</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group__title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Technology &amp; Tools
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft Excel</span>
+            <span class="skill-tag">CRM Systems</span>
+            <span class="skill-tag">Banking Software</span>
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group__title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            Languages &amp; Soft Skills
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">English</span>
+            <span class="skill-tag">Nepali</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Attention to Detail</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ════════════════════════════════ -->
+  <section class="section" id="certifications" aria-labelledby="cert-title">
+    <div class="container">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title" id="cert-title">Certifications</h2>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="cert-grid">
+
+        <article class="cert-card reveal">
+          <div class="cert-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <div class="cert-card__title">Investment Funds in Canada (IFC)</div>
+            <div class="cert-card__issuer">Investment Funds Institute of Canada (IFIC)</div>
+            <span class="cert-card__badge">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Certified
+            </span>
+          </div>
+        </article>
+
+        <article class="cert-card reveal">
+          <div class="cert-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <div class="cert-card__title">Microsoft Excel</div>
+            <div class="cert-card__issuer">CPD Certified — Continuing Professional Development</div>
+            <span class="cert-card__badge">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              CPD Certified
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══════════════════════════════════════ -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <span class="section-label">Let's Connect</span>
+      <h2 class="section-title" id="contact-title">Get In Touch</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-subtitle">Open to new opportunities in banking, financial services, and investment advisory. Feel free to reach out!</p>
+
+      <div class="contact-grid">
+        <div class="contact-links">
+
+          <a href="mailto:pe645866@gmail.com" class="contact-link">
+            <div class="contact-link__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-link__label">Email</div>
+              <div class="contact-link__value">pe645866@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/prakashsharmapdl" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <div class="contact-link__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-link__label">LinkedIn</div>
+              <div class="contact-link__value">linkedin.com/in/prakashsharmapdl</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/pakkup01" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <div class="contact-link__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            </div>
+            <div>
+              <div class="contact-link__label">GitHub</div>
+              <div class="contact-link__value">github.com/pakkup01</div>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="contact-cta reveal">
+          <div class="contact-cta__title">Ready to make an impact</div>
+          <p class="contact-cta__text">With a strong foundation in financial services, banking operations, and client advisory, I'm eager to bring value to your team. Let's discuss how my skills can align with your organisation's goals.</p>
+          <a href="mailto:pe645866@gmail.com" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send Me an Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════ -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Prakash Sharma Poudel · Built with ❤️ and hosted on <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close nav on link click
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Scroll-reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>
